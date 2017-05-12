@@ -38,10 +38,10 @@ patch '/brand/:id/add/stores' do
   store_ids = params[:store_ids]
   if store_ids != []
     store_ids.each() do |id|
-      brand.update({:store_id => id})
+      brand.stores.push(Store.find(id))
     end
   end
-  redirect ('/brand/' + brand.id())
+  redirect ('/brand/' + brand.id().to_s)
 end
 
 delete '/brand/:id/remove/stores' do
@@ -49,8 +49,8 @@ delete '/brand/:id/remove/stores' do
   store_ids = params[:store_ids]
   if store_ids != []
     store_ids.each() do |id|
-      brand.store.destroy(Store.find(id))
+      brand.stores.destroy(Store.find(id))
     end
   end
-  redirect ('/brand/' + brand.id())
+  redirect ('/brand/' + brand.id().to_s)
 end

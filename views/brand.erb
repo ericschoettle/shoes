@@ -1,30 +1,29 @@
 <h1><%= @brand.name %>:</h1>
 
-
-
-<% if @brand.not_stores != [] %>
-  <h3><%= @brand.name %> is not carried in these fine stores:</h3>
+<% if @brand.stores() != [] %>
+  <h3><%= @brand.name %> is carried in these fine stores:</h3>
   <form action="/brand/<%= @brand.id %>/remove/stores" method="post">
     <input type="hidden" name="_method" value="delete">
     <div class="input-group">
-      <% @brand.not_stores.each() do |store| %>
-        <input type="checkbox" name="store_ids" value="<%= store.id() %>"> <a href="/store/<%= store.id() %>"><b><%= store.name() %></a> <br>
+      <% @brand.stores.each() do |store| %>
+        <input type="checkbox" name="store_ids[]" value="<%= store.id() %>"> <a href="/store/<%= store.id() %>"><b><%= store.name() %></a> <br>
       <% end %>
+      <br>
     </div>
     <button type="submit" class="btn btn-primary">Carry <%= @brand.name %> in these fine stores</button>
   </form>
 <% end %>
 
-
-<!-- <% if @brand.stores() != [] %>
-  <h3><%= @brand.name %> is carried in these fine stores:</h3>
+<% if @brand.not_stores != [] %>
+  <h3><%= @brand.name %> is not carried in these fine stores:</h3>
   <form action="/brand/<%= @brand.id %>/add/stores" method="post">
     <input type="hidden" name="_method" value="patch">
     <div class="input-group">
-      <% @brand.stores.each() do |store| %>
-        <input type="checkbox" name="store_ids" value="<%= store.id() %>"> <a href="/store/<%= store.id() %>"><b><%= store.name() %></a> <br>
+      <% @brand.not_stores.each() do |store| %>
+        <input type="checkbox" name="store_ids[]" value="<%= store.id() %>"> <a href="/store/<%= store.id() %>"><b><%= store.name() %></a> <br>
       <% end %>
+      <br>
     </div>
     <button type="submit" class="btn btn-primary">Carry <%= @brand.name %> in these fine stores</button>
   </form>
-<% end %> -->
+<% end %>
