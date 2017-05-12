@@ -9,7 +9,7 @@
       <% if @brands != [] %>
       <h3>Existing brands:</h3>
         <% @brands.each() do |brand| %>
-          <a href="/brand/<%= brand.id() %>"><b><%= brand.name() %>,</b> <%= brand.price() %></a>
+          <a href="/brand/<%= brand.id() %>"><b><%= brand.name() %>,</b> <%= brand.price() %></a> <br>
         <% end %>
       <% end %>
 
@@ -38,7 +38,7 @@
       <% if @stores != [] %>
       <h3>Existing stores:</h3>
         <% @stores.each() do |store| %>
-          <a href="/store/<%= store.id() %>"><b><%= store.name() %>,</b> <%= store.price() %></a>
+          <a href="/store/<%= store.id() %>"><b><%= store.name() %></a> <br>
         <% end %>
       <% end %>
 
@@ -47,10 +47,6 @@
         <div class="form-group">
           <label for="name">What is the name of the store?</label>
           <input type="text" name="name">
-        </div>
-        <div class="form-group">
-          <label for="price">What is the price of the store?</label>
-          <input type="number" name="price">
         </div>
         <button type="submit" class="btn btn-primary">Add store</button>
       </form>
