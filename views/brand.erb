@@ -2,7 +2,7 @@
 
 <% if @brand.stores != [] %>
   <h3><%= @brand.name %> is carried in these fine stores:</h3>
-  <form class="" action="/brand/<%= @brand.id %>/stores" method="post">
+  <form action="/brand/<%= @brand.id %>/stores" method="post">
     <input type="hidden" name="_method" value="delete">
     <div class="input-group">
       <% @brand.stores.each() do |store| %>
