@@ -1,8 +1,5 @@
 for brand.erb:
 
-- make not_stores function
-- make get request
-- make update_requests (add add and remove stores)
 - make store update and delete buttons (front end)
 - make store update and delete requests in app.rb
 
@@ -26,4 +23,4 @@ Overall:
 - Integration testing
 - figure out how to pre-load names
 - figure out how to have error messages appear on main page, perhaps integrate with bootstrap
-- figure out authentication with bcrypt, devise, or Sinatra's http Authentication. 
+- figure out authentication with bcrypt, devise, or Sinatra's http Authentication.
