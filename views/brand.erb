@@ -30,7 +30,7 @@
             <% end %>
             <br>
           </div>
-          <button type="submit" class="btn btn-primary">Carry <%= @brand.name %> in these fine stores</button>
+          <button type="submit" class="btn btn-primary">Cease support for <%= @brand.name %> in these fine stores</button>
         </form>
       <% end %>
     </div>
@@ -43,16 +43,12 @@
      <h2>Edit <%= @brand.name %></h2>
     </div>
     <div class="panel-body">
-      <h3>Update name and price:</h3>
+      <h3>Update name:</h3>
       <form action="/brand/<%= @brand.id %>" method="post">
         <input type="hidden" name="_method" value="patch">
         <div class="form-group">
           <label for="name">What is the new name?</label>
           <input type="text" name="name">
-        </div>
-        <div class="form-group">
-          <label for="price">What is the new price?</label>
-          <input type="number" name="price">
         </div>
         <button type="submit" class="btn btn-primary">Update</button>
       </form>
