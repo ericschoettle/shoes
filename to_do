@@ -1,19 +1,8 @@
 for brand.erb:
 
-- make store update and delete buttons (front end)
-- make store update and delete requests in app.rb
-
-- make validation checks: forms full, less than 100 characters, unique name
+- test validation checks
 - make callbacks: capitalize, price to formatted price
 
-- make back to homepage button
-
-- Style
-
-for stores.erb
-
-- copy and paste!!!
-- remove prices
 
 
 Overall:
