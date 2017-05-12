@@ -27,3 +27,8 @@ post '/store' do
     erb :error
   end
 end
+
+get 'brand/:id' do
+  @brand = Brand.find(params[:id])
+  erb :brand
+end
