@@ -1,5 +1,5 @@
 class Brand < ActiveRecord::Base
-  has_many :joins
+  has_many :joins, dependent: :destroy
   has_many :stores, through: :joins
 
   def not_stores

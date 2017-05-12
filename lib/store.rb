@@ -1,5 +1,5 @@
 class Store < ActiveRecord::Base
-  has_many :joins
+  has_many :joins, dependent: :destroy
   has_many :brands, through: :joins
 
   def not_brands
