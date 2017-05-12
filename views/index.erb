@@ -1,27 +1,32 @@
 <h1>House of shoes</h1>
 <br>
-
-<h3>existing brands:</h3>
 <div class="col-md-6">
-  <% if @brands %>
-    <% @brands.each() do |brand| %>
-      <a href="/brand/<%= brand.id() %>"><b><%= brand.name() %>,</b> <%= brand.price() %></a>
-    <% end %>
-  <% end %>
-
-  <h3>Add a brand:</h3>
-  <form id="brand" action="/brand" method="post">
-    <div class="form-group">
-      <label for="name">What is the name of the brand?</label>
-      <input type="text" name="name">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2>Brands:</h2>
     </div>
-    <div class="form-group">
-      <label for="price">What is the price of the brand?</label>
-      <input type="number" name="price">
-    </div>
-    <button type="submit" class="btn btn-primary">Add brand</button>
-  </form>
+    <div class="panel-body">
+      <% if @brands != [] %>
+      <h3>Existing brands:</h3>
+        <% @brands.each() do |brand| %>
+          <a href="/brand/<%= brand.id() %>"><b><%= brand.name() %>,</b> <%= brand.price() %></a>
+        <% end %>
+      <% end %>
 
+      <h3>Add a brand:</h3>
+      <form id="brand" action="/brand" method="post">
+        <div class="form-group">
+          <label for="name">What is the name of the brand?</label>
+          <input type="text" name="name">
+        </div>
+        <div class="form-group">
+          <label for="price">What is the price of the brand?</label>
+          <input type="number" name="price">
+        </div>
+        <button type="submit" class="btn btn-primary">Add brand</button>
+      </form>
+    </div>
+  </div>
 </div>
 
 <div class="col-md-6">
