@@ -28,7 +28,29 @@ post '/store' do
   end
 end
 
-get 'brand/:id' do
+get '/brand/:id' do
   @brand = Brand.find(params[:id])
   erb :brand
+end
+
+patch '/brand/:id/add/stores' do
+  brand = Brand.find(params[:id])
+  store_ids = params[:store_ids]
+  if store_ids != []
+    store_ids.each() do |id|
+      brand.update({:store_id => id})
+    end
+  end
+  redirect ('/brand/' + brand.id())
+end
+
+delete '/brand/:id/remove/stores' do
+  brand = Brand.find(params[:id])
+  store_ids = params[:store_ids]
+  if store_ids != []
+    store_ids.each() do |id|
+      brand.store.destroy(Store.find(id))
+    end
+  end
+  redirect ('/brand/' + brand.id())
 end

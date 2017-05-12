@@ -1,4 +1,4 @@
 class Join < ActiveRecord::Base
-  belongs_to :brands
-  belongs_to :stores
+  belongs_to :brand
+  belongs_to :store
 end
