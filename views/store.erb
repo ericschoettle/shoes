@@ -1,65 +1,67 @@
 <h1><%= @store.name %>:</h1>
+<div class="row">
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h2>Manage brands carrying <%= @store.name %></h2>
+      </div>
+      <div class="panel-body">
+        <% if @store.brands() != [] %>
+          <h3><%= @store.name %> carries these fine brands:</h3>
+          <form action="/store/<%= @store.id %>/remove/brands" method="post">
+            <input type="hidden" name="_method" value="delete">
+            <div class="input-group">
+              <% @store.brands.each() do |brand| %>
+                <input type="checkbox" name="brand_ids[]" value="<%= brand.id() %>">&nbsp;&nbsp;<a href="/brand/<%= brand.id() %>"><b><%= brand.name() %></a> <br>
+              <% end %>
+              <br>
+            </div>
+            <button type="submit" class="btn btn-primary">Stop carrying these fine brands in <%= @store.name %> </button>
+          </form>
+        <% end %>
 
-<div class="col-md-6">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h2>Manage brands carrying <%= @store.name %></h2>
+        <% if @store.not_brands != [] %>
+          <h3><%= @store.name %> does not carry these fine brands:</h3>
+          <form action="/store/<%= @store.id %>/add/brands" method="post">
+            <input type="hidden" name="_method" value="patch">
+            <div class="input-group">
+              <% @store.not_brands.each() do |brand| %>
+                <input type="checkbox" name="brand_ids[]" value="<%= brand.id() %>">&nbsp;&nbsp;<a href="/brand/<%= brand.id() %>"><b><%= brand.name() %></a> <br>
+              <% end %>
+              <br>
+            </div>
+            <button type="submit" class="btn btn-primary">Carry brands in <%= @store.name %></button>
+          </form>
+        <% end %>
+      </div>
     </div>
-    <div class="panel-body">
-      <% if @store.brands() != [] %>
-        <h3><%= @store.name %> carries these fine brands:</h3>
-        <form action="/store/<%= @store.id %>/remove/brands" method="post">
-          <input type="hidden" name="_method" value="delete">
-          <div class="input-group">
-            <% @store.brands.each() do |brand| %>
-              <input type="checkbox" name="brand_ids[]" value="<%= brand.id() %>">&nbsp;&nbsp;<a href="/brand/<%= brand.id() %>"><b><%= brand.name() %></a> <br>
-            <% end %>
-            <br>
-          </div>
-          <button type="submit" class="btn btn-primary">Stop carrying these fine brands in <%= @store.name %> </button>
-        </form>
-      <% end %>
+  </div>
 
-      <% if @store.not_brands != [] %>
-        <h3><%= @store.name %> does not carry these fine brands:</h3>
-        <form action="/store/<%= @store.id %>/add/brands" method="post">
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+       <h2>Edit <%= @store.name %></h2>
+      </div>
+      <div class="panel-body">
+        <h3>Update name:</h3>
+        <form action="/store/<%= @store.id %>" method="post">
           <input type="hidden" name="_method" value="patch">
-          <div class="input-group">
-            <% @store.not_brands.each() do |brand| %>
-              <input type="checkbox" name="brand_ids[]" value="<%= brand.id() %>">&nbsp;&nbsp;<a href="/brand/<%= brand.id() %>"><b><%= brand.name() %></a> <br>
-            <% end %>
-            <br>
+          <div class="form-group">
+            <label for="name">What is the new name?</label>
+            <input type="text" name="name">
           </div>
-          <button type="submit" class="btn btn-primary">Carry brands in <%= @store.name %></button>
+          <button type="submit" class="btn btn-primary">Update</button>
         </form>
-      <% end %>
+        <br>
+        <h3>Delete Store:</h3>
+        <form action="/store/<%= @store.id %>" method="post">
+          <input type="hidden" name="_method" value="delete">
+          <button type="submit" class="btn btn-warning">Delete</button>
+        </form>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="col-md-6">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-     <h2>Edit <%= @store.name %></h2>
-    </div>
-    <div class="panel-body">
-      <h3>Update name:</h3>
-      <form action="/store/<%= @store.id %>" method="post">
-        <input type="hidden" name="_method" value="patch">
-        <div class="form-group">
-          <label for="name">What is the new name?</label>
-          <input type="text" name="name">
-        </div>
-        <button type="submit" class="btn btn-primary">Update</button>
-      </form>
-      <br>
-      <h3>Delete Store:</h3>
-      <form action="/store/<%= @store.id %>" method="post">
-        <input type="hidden" name="_method" value="delete">
-        <button type="submit" class="btn btn-warning">Delete</button>
-      </form>
-    </div>
-  </div>
 </div>
 
 <a href="/">Return to the main page</a>

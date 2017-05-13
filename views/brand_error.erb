@@ -8,12 +8,4 @@
   </ul>
 <% end %>
 
-<% if @store.errors %>
-  <ul>
-    <% @store.errors().full_messages().each() do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
-
 <h5><a href="/" >Try again, please</a></h5>

@@ -1,55 +1,58 @@
 <h1>House of shoes</h1>
 <br>
-<div class="col-md-6">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h2>Brands:</h2>
-    </div>
-    <div class="panel-body">
-      <% if @brands != [] %>
-      <h3>Existing brands:</h3>
-        <% @brands.each() do |brand| %>
-          <a href="/brand/<%= brand.id() %>"><b><%= brand.name() %>,</b> <%= brand.price() %></a> <br>
+<div class="row">
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h2>Brands:</h2>
+      </div>
+      <div class="panel-body">
+        <% if @brands != [] %>
+        <h3>Existing brands:</h3>
+          <% @brands.each() do |brand| %>
+            <a href="/brand/<%= brand.id() %>"><b><%= brand.name() %>,</b> <%= brand.to_money() %></a> <br>
+          <% end %>
         <% end %>
-      <% end %>
 
-      <h3>Add a brand:</h3>
-      <form id="brand" action="/brand" method="post">
-        <div class="form-group">
-          <label for="name">What is the name of the brand?</label>
-          <input type="text" name="name">
-        </div>
-        <div class="form-group">
-          <label for="price">What is the price of the brand?</label>
-          <input type="text" name="price">
-        </div>
-        <button type="submit" class="btn btn-primary">Add brand</button>
-      </form>
+        <h3>Add a brand:</h3>
+        <form id="brand" action="/brand" method="post">
+          <div class="form-group">
+            <label for="name">What is the name of the brand?</label>
+            <input type="text" name="name">
+          </div>
+          <div class="form-group">
+            <label for="price">What is the price of the brand?</label>
+            <input type="text" name="price">
+          </div>
+          <button type="submit" class="btn btn-primary">Add brand</button>
+        </form>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="col-md-6">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h2>Stores:</h2>
-    </div>
-    <div class="panel-body">
-      <% if @stores != [] %>
-      <h3>Existing stores:</h3>
-        <% @stores.each() do |store| %>
-          <a href="/store/<%= store.id() %>"><b><%= store.name() %></a> <br>
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h2>Stores:</h2>
+      </div>
+      <div class="panel-body">
+        <% if @stores != [] %>
+        <h3>Existing stores:</h3>
+          <% @stores.each() do |store| %>
+            <a href="/store/<%= store.id() %>"><b><%= store.name() %></a> <br>
+          <% end %>
         <% end %>
-      <% end %>
 
-      <h3>Add a store:</h3>
-      <form id="store" action="/store" method="post">
-        <div class="form-group">
-          <label for="name">What is the name of the store?</label>
-          <input type="text" name="name">
-        </div>
-        <button type="submit" class="btn btn-primary">Add store</button>
-      </form>
+        <h3>Add a store:</h3>
+        <form id="store" action="/store" method="post">
+          <div class="form-group">
+            <label for="name">What is the name of the store?</label>
+            <input type="text" name="name">
+          </div>
+          <button type="submit" class="btn btn-primary">Add store</button>
+        </form>
+      </div>
     </div>
   </div>
+
 </div>

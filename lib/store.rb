@@ -12,7 +12,7 @@ class Store < ActiveRecord::Base
     return not_brands = Brand.all() - self.brands()
   end
 
-private
+  private
   def capitalize_words
     self.name = name.split(' ').map(&:capitalize).join(' ')
   end
