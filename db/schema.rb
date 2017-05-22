@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20170512171434) do
 
   create_table "brands", force: :cascade do |t|
     t.string "name"
-    t.integer "price"
+    t.string "price"
   end
 
   create_table "joins", force: :cascade do |t|

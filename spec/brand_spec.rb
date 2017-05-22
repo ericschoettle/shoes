@@ -27,7 +27,6 @@ describe Brand do
 
     it "validates length of name is less than 100 characters" do
       brand = Brand.new(name: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
-
       expect(brand.save).to eq(false)
     end
 
@@ -39,10 +38,10 @@ describe Brand do
     end
 
     it "converts dollars to cents before saving" do
-      brand = Brand.new(price: 100, name: "Nike")
-      expect(brand.price).to eq 100
+      brand = Brand.new(price: "$100.00", name: "Nike")
+      expect(brand.price).to eq "$100.00"
       brand.save
-      expect(Brand.all.first.price).to eq 10000
+      expect(Brand.all.first.price).to eq "10000"
     end
   end
 

@@ -2,7 +2,7 @@ class InitializeBrandStoreAndJoinTables < ActiveRecord::Migration[5.1]
   def change
     create_table :brands do |t|
       t.column :name, :string
-      t.column :price, :integer
+      t.column :price, :string
     end
 
     create_table :joins do |t|
