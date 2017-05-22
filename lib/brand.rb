@@ -20,7 +20,6 @@ class Brand < ActiveRecord::Base
   end
 
   def to_money
-
     string = "$" + self.price.to_s()
     return string.insert(-3, ".")
   end
